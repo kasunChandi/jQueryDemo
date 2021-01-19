@@ -4,30 +4,59 @@
 <meta charset="utf-8">
 <title>Jquery Slider </title>
 </head>
+
 <style  type="text/css">
 	.slider{
 		width: 800px;
 		height: 350px;
 		overflow: hidden;
 		margin: 30px auto;
-		background-image: url(img/Load1.gif);
+		background-image: url(img/Load.gif);
 		background-repeat: no-repeat;
 		background-position: center;
 		
 	}
-	
-	.slider img{
+	.img{
 		width: 800px;
 		height: 350px;
 		display: none;
 	}
 	
+	
 	</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-<body>
+
+<script type="text/javascript">
+	function Slider(){
+		$(".slider#2").show("fade",500);
+		$(".slider#2").delay(5500).hide("slide",{direction:"left"},500);
+		
+		var sc = $(".img").size();
+		var count = 2;
+		
+		setInterval(function(){
+			$(".slider#"+count).show("slide", {direction:'right'},500);
+			$("slider#"+count).delay(500).hide("slide",{direction:'left'},500);
+			
+			if(count == sc){
+				count =1;
+			}
+			else{
+				count = count+1;
+			}
+		},6000)
+	}
+	
+	</script>
+
+<body onLoad="Slider();">
 <div class="slider">
-	<img src="img/sliderImg1.jpg" border="0" alt ="slider img1"/>
-	<img src="img/sliderImg2.jpg" border="0" alt="slider img 2"/>
+	<img id="1" src="img/sliderImg1.jpg" border="0" alt ="slider img1"/>
+	<img id="2" src="img/sliderImg2.jpg" border="0" alt="slider img 2"/>
+	<img id="3" src="img/sliderImg2.jpg" border="0" alt="slider img 2"/>
 </div>
 
 </body>

@@ -6,10 +6,10 @@
 		<link rel="stylesheet" href="styles/simpleStyle.css">		
 	</head>
 	<body>
-		<!-- Container for Slider and Navigation Controls -->
+		<!-- Container for Slider -->
 		<div class="gallery">
 			<h2>KP Coding tutorial</h2>
-			<!-- The actual moving Slider -->
+			<!--  moving Slider -->
 			<div class="slider">
 				<ul>
 					<li><img src="images/SliderImg/sl1.jpg" class="slides" alt="Image1"></li>
@@ -18,19 +18,19 @@
 					<li><img src="images/SliderImg/sl3.jpg" class="slides" alt="Image4"></li>
 				</ul>
 			</div>
-			<!-- Navigation Button Controls -->
+			<!-- Navigation Button -->
 			<div id="slider-nav">
 				<button data-dir="prev">Previous</button>
 				<button data-dir="next" style="float:right;">Next</button>
 			</div>
 		</div>
-		<!-- Loading JavaScript Codes. -->
+		<!-- Loading JavaScript. -->
 		<script src="scripts/jquery-2.1.0.js"></script>
 		<script src="scripts/simpleSliderScript.js"></script>
 		<script>
 			// 
 			jQuery(document).ready(function ($) {
-				// creating a container variable to hold the 'UL' elements. It uses method chaining.
+				// creating a container variable 
 				var container=$('div.slider')
 											.css('overflow','hidden')
 											.children('ul');

@@ -1,0 +1,4 @@
+*.png
+*.jpg
+/Sliderimg
+\jquery-2.1.0.js

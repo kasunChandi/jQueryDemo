@@ -1,0 +1,70 @@
+
+<!Doctype html>
+<html>
+	<head>
+		<title>JQuery Slider type2</title>
+		<link rel="stylesheet" href="styles/simpleStyle.css">		
+	</head>
+	<body>
+		<!-- Container for Slider and Navigation Controls -->
+		<div class="gallery">
+			<h2>KP Coding </h2>
+			<!-- The actual moving Slider -->
+			<div class="slider">
+				<ul>
+					<li><img src="images/SliderImg/sl1.jpg" class="slides" alt="Image1"></li>
+					<li><img src="images/SliderImg/sl2.png" class="slides" alt="Image2"></li>
+					<li><img src="images/SliderImg/sl4.jpg" class="slides" alt="Image3"></li>
+					<li><img src="images/SliderImg/sl3.jpg" class="slides" alt="Image4"></li>
+				</ul>
+			</div>
+			<!-- Navigation Button Controls -->
+			<div id="slider-nav">
+				<button data-dir="prev">Previous</button>
+				<button data-dir="next" style="float:right;">Next</button>
+			</div>
+		</div>
+		<!-- Loading JavaScript Codes. -->
+		<script src="scripts/jquery-2.1.0.js"></script>
+		<script src="scripts/simpleSliderScript.js"></script>
+		<script>
+			// 
+			jQuery(document).ready(function ($) {
+				// creating a container variable to hold the 'UL' elements. It uses method chaining.
+				var container=$('div.slider')
+											.css('overflow','hidden')
+											.children('ul');
+				
+		
+				$('.gallery').hover(function( e ){
+					$('#slider-nav').toggle();
+					return e.type=='mouseenter'?clearInterval(intv):autoSlider();
+				});
+				
+				// Creating the 'slider' instance which will set initial parameters for the Slider.
+				var sliderobj= new slider(container,$('#slider-nav'));
+				/*
+				This will trigger the 'setCurrentPos' and 'transition' methods on click of any button
+				*/
+				sliderobj.nav.find('button').on('click', function(){
+					sliderobj.setCurrentPos($(this).data('dir'));
+					sliderobj.transition();
+				});
+				
+				autoSlider(); // Calling autoSlider() 
+				
+				/* 
+				 interval variable
+				*/
+				function autoSlider()
+				{
+					return intv = setInterval(function(){
+						sliderobj.setCurrentPos('next');
+						sliderobj.transition();
+					}, 5000);
+				}
+				
+			});
+		</script>
+	</body>
+</html>

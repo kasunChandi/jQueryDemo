@@ -34,6 +34,8 @@
 #slider-nav
 {
 	display:none; /* This is important to hide the buttons if jQuery is Not supported. */
-	margin-top: -10em;
+    margin-top: -10em;
+    background-color: #999;
+    background: #9999ff;
 	cursor: pointer;		
 }
